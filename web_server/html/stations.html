@@ -1,0 +1,95 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=0.8, minimal-ui">
+		<meta name="description" content="Wi-Fi Deauthenticator">
+		<meta name="author" content="Spacehuhn - Stefan Kremser">
+		<meta name="theme-color" content="#36393E" />
+		<title>ESP8266 Deauther</title>
+		<link rel="stylesheet" href="style.css">
+		<script src="js/functions.js"></script>
+	</head>
+	<body>
+		<nav>
+			<a href="apscan.html">热点</a>
+			<a href="stations.html">站点</a>
+			<a href="attack.html">攻击</a>
+			<a href="settings.html">设置</a>
+			<a class="right" href="info.html">信息</a>
+		</nav>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+
+					<div id="error" class="hide"></div>
+
+					<h1 class="header">扫描Wi-Fi站点</h1>
+					<label>扫描时间:
+						<input type="number" id="scanTime" value="10">秒
+					</label>
+
+					<button onclick="scan()" id="startScan" class="right button-primary">开始</button>
+
+					<a id="clientScanStatus"><br />扫描中...</a>
+
+					<p class="red">开始扫描后可能丢失与本设备的连接，您可能需要重新进行连接并重新刷新页面。</p>
+					<p class="red">译者：需要选择热点后进行扫描，否则会报错。</p>
+
+					<p>
+						找到站点中的设备: <span id="clientsFound">0</span><br />
+						<br />
+						<button class="marginNull button-primary left" onclick="select(-2)">全不选</button>
+						<button class="marginNull button-primary right" onclick="select(-1)">全选</button><br />
+					</p>
+
+					<table></table>
+
+					<p class="block bold" >
+						保存设备: <span id="clientNames"></span>
+					</p>
+
+					<table id="nameList"></table>
+
+					<button class="red left" onclick="clearNameList()">清除</button>
+
+					<p>
+						<br class="clear" />
+						<br />
+						添加设备:
+					</p>
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-4">
+					<label>MAC <input type="text" placeholder="AA:BB:CC:DD:EE:FF" id="cMac" /></label>
+				</div>
+				<div class="col-4">
+					<label>名称 <input type="text" placeholder="EXAMPLE" id="cName" /></label>
+				</div>
+				<div class="col-4">
+					<button class="button-primary" style="width: 100%" onclick="addClient()">添加</button>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-12">
+					<div id="copyright">
+						版本 1.6<br />
+						由Jokin翻译<br />
+						Copyright (c) 2017 Stefan Kremser<br />
+						作者：<a href="https://github.com/spacehuhn" target="_blank">github.com/spacehuhn</a>
+						<br />
+						翻译：<a href="https://github.com/jokin1999" target="_blank">github.com/jokin1999</a>
+					</div>
+				</div>
+			</div>
+
+			<script src="js/stations.js"></script>
+
+		</div>
+	</body>
+</html>

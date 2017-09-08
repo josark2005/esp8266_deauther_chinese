@@ -1,0 +1,5 @@
+const char data_apscanHTML[] PROGMEM = {};
+const char data_attackHTML[] PROGMEM = {};
+const char data_errorHTML[] PROGMEM = {};
+const char data_indexHTML[] PROGMEM = {};
+const char data_infoHTML[] PROGMEM = {};
